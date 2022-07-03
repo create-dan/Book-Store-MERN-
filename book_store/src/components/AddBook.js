@@ -1,9 +1,10 @@
 import { FormLabel, TextField } from "@mui/material";
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
+import "../App.css";
 
 import { Box } from "@mui/system";
 
@@ -51,76 +52,80 @@ const AddBook = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <Box
-        display="flex"
-        flexDirection="column"
-        justifyContent={"center"}
-        maxWidth={700}
-        alignContent={"center"}
-        alignSelf="center"
-        marginLeft={"auto"}
-        marginRight="auto "
-        marginTop={10}
-      >
-        <FormLabel>Name</FormLabel>
-        <TextField
-          value={inputs.name}
-          onChange={handleChange}
-          margin="normal"
-          fullWidth
-          variant="outlined"
-          name="name"
-        ></TextField>
-        <FormLabel>Author</FormLabel>
-        <TextField
-          value={inputs.author}
-          onChange={handleChange}
-          margin="normal"
-          fullWidth
-          variant="outlined"
-          name="author"
-        ></TextField>
-        <FormLabel>Description</FormLabel>
-        <TextField
-          value={inputs.description}
-          onChange={handleChange}
-          margin="normal"
-          fullWidth
-          variant="outlined"
-          name="description"
-        ></TextField>
-        <FormLabel>Price</FormLabel>
-        <TextField
-          value={inputs.price}
-          onChange={handleChange}
-          type="number"
-          margin="normal"
-          fullWidth
-          variant="outlined"
-          name="price"
-        ></TextField>
-        <FormLabel>Image</FormLabel>
-        <TextField
-          value={inputs.image}
-          onChange={handleChange}
-          margin="normal"
-          fullWidth
-          variant="outlined"
-          name="image"
-        ></TextField>
-        <FormControlLabel
-          control={
-            <Checkbox checked={checked} onChange={() => setChecked(!checked)} />
-          }
-          label="Available"
-        />
+    <div className="homeBackground">
+      <form onSubmit={handleSubmit}>
+        <Box
+          display="flex"
+          flexDirection="column"
+          justifyContent={"center"}
+          maxWidth={700}
+          alignContent={"center"}
+          alignSelf="center"
+          marginLeft={"auto"}
+          marginRight="auto "
+        >
+          <FormLabel>Name</FormLabel>
+          <TextField
+            value={inputs.name}
+            onChange={handleChange}
+            margin="normal"
+            fullWidth
+            variant="outlined"
+            name="name"
+          ></TextField>
+          <FormLabel>Author</FormLabel>
+          <TextField
+            value={inputs.author}
+            onChange={handleChange}
+            margin="normal"
+            fullWidth
+            variant="outlined"
+            name="author"
+          ></TextField>
+          <FormLabel>Description</FormLabel>
+          <TextField
+            value={inputs.description}
+            onChange={handleChange}
+            margin="normal"
+            fullWidth
+            variant="outlined"
+            name="description"
+          ></TextField>
+          <FormLabel>Price</FormLabel>
+          <TextField
+            value={inputs.price}
+            onChange={handleChange}
+            type="number"
+            margin="normal"
+            fullWidth
+            variant="outlined"
+            name="price"
+          ></TextField>
+          <FormLabel>Image</FormLabel>
+          <TextField
+            value={inputs.image}
+            onChange={handleChange}
+            margin="normal"
+            fullWidth
+            variant="outlined"
+            name="image"
+          ></TextField>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={checked}
+                onChange={() => setChecked(!checked)}
+              />
+            }
+            label="Available"
+          />
 
-        <Button variant="contained" type="submit">
-          Submit
-        </Button>
-      </Box>
-    </form>
+          <Button variant="contained" type="submit">
+            Submit
+          </Button>
+        </Box>
+      </form>
+    </div>
   );
 };
 

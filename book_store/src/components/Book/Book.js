@@ -10,12 +10,17 @@ const Book = (props) => {
   const { _id, name, author, description, price, image } = props.book;
 
   const deleteHandler = async () => {
-    await axios
-      .delete(`http://localhost:5000/books/${_id}`)
-      .then((res) => res.data)
-      .then(() => history("/"))
-      .then(() => history("/books"));
+    if (window.confirm("Are You Sure ?")) {
+      await axios
+        .delete(`http://localhost:5000/books/${_id}`)
+        .then((res) => res.data)
+        .then(() => history("/"))
+        .then(() => history("/books"));
+
+      
+    }
   };
+
   return (
     <div className="card">
       <img src={image} alt={name} />

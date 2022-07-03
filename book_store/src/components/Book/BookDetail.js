@@ -7,6 +7,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import axios from "axios";
+import "../../App.css";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -42,7 +43,7 @@ const BookDetail = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    sendRequest().then(() => history("/books")); 
+    sendRequest().then(() => history("/books"));
   };
 
   const handleChange = (e) => {
@@ -52,82 +53,83 @@ const BookDetail = () => {
     }));
   };
   return (
-    <div>
-      {inputs && (
-        <form onSubmit={handleSubmit}>
-          <Box
-            display="flex"
-            flexDirection="column"
-            justifyContent={"center"}
-            maxWidth={700}
-            alignContent={"center"}
-            alignSelf="center"
-            marginLeft={"auto"}
-            marginRight="auto "
-            marginTop={10}
-          >
-            <FormLabel>Name</FormLabel>
-            <TextField
-              value={inputs.name}
-              onChange={handleChange}
-              margin="normal"
-              fullWidth
-              variant="outlined"
-              name="name"
-            ></TextField>
-            <FormLabel>Author</FormLabel>
-            <TextField
-              value={inputs.author}
-              onChange={handleChange}
-              margin="normal"
-              fullWidth
-              variant="outlined"
-              name="author"
-            ></TextField>
-            <FormLabel>Description</FormLabel>
-            <TextField
-              value={inputs.description}
-              onChange={handleChange}
-              margin="normal"
-              fullWidth
-              variant="outlined"
-              name="description"
-            ></TextField>
-            <FormLabel>Price</FormLabel>
-            <TextField
-              value={inputs.price}
-              onChange={handleChange}
-              type="number"
-              margin="normal"
-              fullWidth
-              variant="outlined"
-              name="price"
-            ></TextField>
-            <FormLabel>Image</FormLabel>
-            <TextField
-              value={inputs.image}
-              onChange={handleChange}
-              margin="normal"
-              fullWidth
-              variant="outlined"
-              name="image"
-            ></TextField>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={checked}
-                  onChange={() => setChecked(!checked)}
-                />
-              }
-              label="Available"
-            />
+    <div className="homeBackground">
+      <div>
+        {inputs && (
+          <form onSubmit={handleSubmit}>
+            <Box
+              display="flex"
+              flexDirection="column"
+              justifyContent={"center"}
+              maxWidth={700}
+              alignContent={"center"}
+              alignSelf="center"
+              marginLeft={"auto"}
+              marginRight="auto "
+            >
+              <FormLabel style={{ fontWeight: "bold" }}>Name</FormLabel>
+              <TextField
+                value={inputs.name}
+                onChange={handleChange}
+                margin="normal"
+                fullWidth
+                variant="outlined"
+                name="name"
+              ></TextField>
+              <FormLabel style={{ fontWeight: "bold" }}>Author</FormLabel>
+              <TextField
+                value={inputs.author}
+                onChange={handleChange}
+                margin="normal"
+                fullWidth
+                variant="outlined"
+                name="author"
+              ></TextField>
+              <FormLabel style={{ fontWeight: "bold" }}>Description</FormLabel>
+              <TextField
+                value={inputs.description}
+                onChange={handleChange}
+                margin="normal"
+                fullWidth
+                variant="outlined"
+                name="description"
+              ></TextField>
+              <FormLabel style={{ fontWeight: "bold" }}>Price</FormLabel>
+              <TextField
+                value={inputs.price}
+                onChange={handleChange}
+                type="number"
+                margin="normal"
+                fullWidth
+                variant="outlined"
+                name="price"
+              ></TextField>
+              <FormLabel style={{ fontWeight: "bold" }}>Image</FormLabel>
+              <TextField
+                value={inputs.image}
+                onChange={handleChange}
+                margin="normal"
+                fullWidth
+                variant="outlined"
+                name="image"
+              ></TextField>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={checked}
+                    onChange={() => setChecked(!checked)}
+                  />
+                }
+                label="Available"
+              />
 
-            <Button variant="contained" type="submit">
-              Update Book
-            </Button>
-          </Box>
-        </form>
-      )}
+              <Button variant="contained" type="submit">
+                Update Book
+              </Button>
+            </Box>
+          </form>
+        )}
+      </div>
     </div>
   );
 };
